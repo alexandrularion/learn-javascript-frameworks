@@ -4,6 +4,7 @@ function Profile(props) {
       style={{
         border: "1px solid #000",
         borderRadius: "15px",
+        padding: "20px",
       }}
     >
       <h1>
