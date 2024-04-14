@@ -37,6 +37,33 @@ function App() {
     },
   ];
 
+  const posts = [
+    {
+      user: {
+        name: "John Doe",
+        email: "john.doe@gmail.com",
+      },
+      src: "https://images.pexels.com/photos/20726113/pexels-photo-20726113/free-photo-of-a-view-of-the-city-of-siena-italy.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      likes: 10,
+    },
+    {
+      user: {
+        name: "John Doe",
+        email: "john.doe@gmail.com",
+      },
+      src: "https://images.pexels.com/photos/21038400/pexels-photo-21038400/free-photo-of-lonely-walker.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      likes: 10,
+    },
+    {
+      user: {
+        name: "John Doe",
+        email: "john.doe@gmail.com",
+      },
+      src: "https://images.pexels.com/photos/20528196/pexels-photo-20528196/free-photo-of-university.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      likes: 10,
+    },
+  ];
+
   return (
     <div
       style={{
@@ -81,7 +108,7 @@ function App() {
           isAdmin={false}
         />
       </div>
-      <PostList />
+      <PostList data={posts} />
     </div>
   );
 }
