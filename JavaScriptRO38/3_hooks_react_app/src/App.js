@@ -1,3 +1,4 @@
+import Form from "./components/Form";
 import WithState from "./components/WithState";
 import WithoutState from "./components/WithoutState";
 
@@ -6,6 +7,7 @@ function App() {
     <div>
       <WithoutState />
       <WithState />
+      <Form />
     </div>
   );
 }
