@@ -1,5 +1,14 @@
+import { useRef } from "react";
+
 const Post = (props) => {
   console.log(props); // { user: { name: "", email:"" }, src:"", likes: 30 }
+
+  // Create a reference to button element using the useRef hook
+  const btnRef = useRef();
+
+  // See the ref object in console
+  console.log(btnRef);
+
   return (
     <div
       style={{
@@ -20,7 +29,8 @@ const Post = (props) => {
             {props.likes} {props.likes > 1 ? "likes" : "like"}
           </p>
         ) : null}
-        <button>Like</button>
+        {/* Adding the ref to the button using ref attribute */}
+        <button ref={btnRef}>Like</button>
       </div>
     </div>
   );
