@@ -1,5 +1,5 @@
 import Form from "./components/Form";
-import WithEffect from "./components/WithEffect";
+import Api from "./components/Api";
 import WithState from "./components/WithState";
 import WithoutState from "./components/WithoutState";
 
@@ -9,7 +9,7 @@ function App() {
       <WithoutState />
       <WithState />
       <Form />
-      <WithEffect />
+      <Api />
     </div>
   );
 }
