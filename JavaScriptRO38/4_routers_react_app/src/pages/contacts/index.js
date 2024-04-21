@@ -6,7 +6,10 @@ const ContactsPage = () => {
   return (
     <div className={styles["container"]}>
       <Navbar />
-      <Sidebar />
+      <div className={styles["container__layout"]}>
+        <Sidebar />
+        <div className={styles["container__content"]}>something</div>
+      </div>
     </div>
   );
 };

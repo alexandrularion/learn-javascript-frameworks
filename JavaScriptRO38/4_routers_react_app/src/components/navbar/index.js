@@ -18,8 +18,9 @@ const Navbar = () => {
   return (
     <div className={styles["container"]}>
       <div className={styles["container__links"]}>
-        {routes.map((route) => (
+        {routes.map((route, key) => (
           <Link
+            key={key}
             to={route.url}
             className={
               route.url === location.pathname
