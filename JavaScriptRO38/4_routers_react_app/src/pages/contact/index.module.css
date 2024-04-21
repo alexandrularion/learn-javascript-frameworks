@@ -1,3 +1,21 @@
 .container {
     display: flex;
+    flex-direction: column;
+}
+
+.container__layout {
+    display: grid;
+    grid-template-columns: 600px calc(100% - 600px);
+    height: calc(100vh - 81px);
+}
+
+.container__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #1c1c1c;
+    padding: 20px;
+    gap: 5px;
+    height: 100%;
 }

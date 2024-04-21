@@ -6,6 +6,11 @@
     padding: 10px;
     background: #2c2c2c;
     border-radius: 12px;
+    transition: 0.2s all ease-in-out;
+}
+
+.container--active {
+    background: #313850; 
 }
 
 .container__avatar {

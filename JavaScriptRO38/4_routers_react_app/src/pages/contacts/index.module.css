@@ -10,7 +10,21 @@
 }
 
 .container__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     background-color: #1c1c1c;
     padding: 20px;
+    gap: 5px;
     height: 100%;
+}
+
+.container__content h2 {
+    color: #fff;
+    font-size: 20px;
+}
+.container__content p {
+    color: #ededed;
+    font-size: 18px;
 }

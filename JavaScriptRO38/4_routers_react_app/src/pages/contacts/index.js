@@ -8,7 +8,10 @@ const ContactsPage = () => {
       <Navbar />
       <div className={styles["container__layout"]}>
         <Sidebar />
-        <div className={styles["container__content"]}>something</div>
+        <div className={styles["container__content"]}>
+          <h2>No contact selected</h2>
+          <p>Please select a contact to see more info.</p>
+        </div>
       </div>
     </div>
   );
