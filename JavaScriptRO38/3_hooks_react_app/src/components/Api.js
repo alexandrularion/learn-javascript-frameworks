@@ -44,6 +44,7 @@ const WithEffect = () => {
 
   useEffect(() => {
     // Call the weather API to get specific params about weather condition
+    // Every time the location state is changing the callback (fn) will run
     getWeatherDataFromAPI(location);
   }, [location]);
 
@@ -61,6 +62,7 @@ const WithEffect = () => {
         value={location}
         onChange={(event) => setLocation(event.target.value)}
       />
+      {/* The JSX below will be update according to the data state */}
       <div>
         <h2>temperature: {data.temperature}C</h2>
         <p>
