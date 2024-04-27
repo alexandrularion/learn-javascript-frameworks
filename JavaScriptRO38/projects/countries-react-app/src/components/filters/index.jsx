@@ -1,32 +1,39 @@
 import Container from "./index.styled";
+import PropTypes from "prop-types";
 
-const Filters = () => {
+const Filters = ({ setFilter, filter }) => {
   const options = [
     {
-      value: 0,
+      value: "africa",
       label: "Africa",
     },
     {
-      value: 1,
+      value: "america",
       label: "America",
     },
     {
-      value: 2,
+      value: "asia",
       label: "Asia",
     },
     {
-      value: 3,
+      value: "europe",
       label: "Europe",
     },
     {
-      value: 4,
+      value: "oceania",
       label: "Oceania",
     },
   ];
 
+  const handleChange = (e) => {
+    if (setFilter) {
+      setFilter(e.target.value);
+    }
+  };
+
   return (
     <Container>
-      <select name="filters">
+      <select name="filters" value={filter} onChange={handleChange}>
         <option value={""} disabled={true} selected={true}>
           Filter by Region
         </option>
@@ -38,6 +45,11 @@ const Filters = () => {
       </select>
     </Container>
   );
+};
+
+Filters.propTypes = {
+  setFilter: PropTypes.func,
+  filter: PropTypes.string,
 };
 
 export default Filters;

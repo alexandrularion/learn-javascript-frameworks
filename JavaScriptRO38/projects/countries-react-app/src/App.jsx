@@ -1,24 +1,35 @@
 import "./App.css";
-import Filters from "./components/filters";
-import Navigation from "./components/navigation";
-import Search from "./components/search";
-import Card from "./components/card";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/home";
+import CountryPage from "./pages/country";
+import Api from "./api";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage />,
+    loader: async () => {
+      const data = await Api.getAllCountries();
+      return {
+        countries: data,
+      };
+    },
+  },
+  {
+    path: "/country/:countryName",
+    element: <CountryPage />,
+    loader: async ({ params }) => {
+      console.log(params.countryName);
+      const data = await Api.getCountryByName(params.countryName);
+      return {
+        country: data,
+      };
+    },
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <Navigation />
-      <Search />
-      <Filters />
-      <Card
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Taliban.svg/320px-Flag_of_the_Taliban.svg.png"
-        name="Afghanistan"
-        population={40218234}
-        region={"Asia"}
-        capital={"Kabul"}
-      />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

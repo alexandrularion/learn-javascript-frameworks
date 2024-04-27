@@ -1,6 +1,18 @@
+import Container from "./index.styled";
+import Navigation from "../navigation";
+import PropTypes from "prop-types";
 
-const Template = () => {
-    return(<div></div>)
-}
+const Layout = ({ children }) => {
+  return (
+    <Container>
+      <Navigation />
+      <main>{children}</main>
+    </Container>
+  );
+};
 
-export default Template;
+Layout.propTypes = {
+  children: PropTypes.element,
+};
+
+export default Layout;
