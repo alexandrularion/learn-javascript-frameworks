@@ -12,16 +12,27 @@
 }
 
 :root {
+  --heading-size-1: 18px;
+  --heading-size-2: 24px;
+  --heading-size-3: 32px;
+  --text-size-1: 14px;
+  --text-size-2: 16px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --nav-background: #2b3844;
+    --background-color-2: #2b3844;
+    --background-color: #202c36;
+    --text-color: #fff;
+    --text-color-2: #fff;
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --nav-background: #fff;
+    --background-color-2: #fff;
+    --background-color: #fafafa;
+    --text-color: #111517;
+    --text-color-2: #848484;
   }
 }
