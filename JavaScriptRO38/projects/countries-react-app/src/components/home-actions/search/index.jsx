@@ -1,5 +1,5 @@
 import Container from "./index.styled";
-import SearchIcon from "../../assets/search.svg?react";
+import SearchIcon from "../../../assets/search.svg?react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 

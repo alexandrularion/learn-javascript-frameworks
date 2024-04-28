@@ -1,11 +1,10 @@
 import Layout from "../../components/layout";
 import Container from "./index.styled";
-import Search from "../../components/search";
-import Filters from "../../components/filters";
 import { useLoaderData } from "react-router-dom";
-import Card from "../../components/card";
 import { useEffect, useState } from "react";
 import Api from "../../api";
+import HomeList from "../../components/home-list";
+import HomeActions from "../../components/home-actions";
 
 const HomePage = () => {
   const { countries } = useLoaderData();
@@ -46,23 +45,13 @@ const HomePage = () => {
   return (
     <Layout>
       <Container>
-        <div className="home__actions">
-          <Search query={query} setQuery={setQuery} />
-          <Filters filter={filter} setFilter={setFilter} />
-        </div>
-        <div className="home__cards">
-          {allCountries.map((country) => (
-            <Card
-              key={country.area}
-              area={country.area}
-              src={country.flags.png}
-              name={country.name.official}
-              population={country.population}
-              region={country.region}
-              capital={country.capital?.length ? country.capital[0] : "None"}
-            />
-          ))}
-        </div>
+        <HomeActions
+          query={query}
+          filter={filter}
+          setFilter={setFilter}
+          setQuery={setQuery}
+        />
+        <HomeList countries={allCountries} />
       </Container>
     </Layout>
   );

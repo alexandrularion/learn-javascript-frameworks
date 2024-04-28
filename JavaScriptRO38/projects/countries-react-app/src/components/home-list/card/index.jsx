@@ -21,7 +21,7 @@ const Card = (props) => {
           </div>
           <div className="content__item">
             <span> Capital:</span>
-            <p>{props.capital}</p>
+            <p>{props.capital || "None"}</p>
           </div>
         </div>
       </Container>

@@ -10,7 +10,7 @@ const Api = {
       const { data } = await instance.get("/v3.1/all");
       return data;
     } catch (e) {
-      console.log("[API-ERROR]: Cannot fetch the getAllCountries method.");
+      console.log("[API-ERROR]: Cannot fetch from the getAllCountries method.");
     }
     return [];
   },
@@ -19,7 +19,9 @@ const Api = {
       const { data } = await instance.get(`/v3.1/name/${name}`);
       return data;
     } catch (e) {
-      console.log("[API-ERROR]: Cannot fetch the getCountriesByName method.");
+      console.log(
+        "[API-ERROR]: Cannot fetch from the getCountriesByName method."
+      );
     }
     return [];
   },
@@ -28,7 +30,9 @@ const Api = {
       const { data } = await instance.get(`/v3.1/name/${name}?fullText=true`);
       return data[0];
     } catch (e) {
-      console.log("[API-ERROR]: Cannot fetch the getCountryByName method.");
+      console.log(
+        "[API-ERROR]: Cannot fetch from the getCountryByName method."
+      );
     }
     return [];
   },
@@ -37,7 +41,9 @@ const Api = {
       const { data } = await instance.get(`/v3.1/region/${region}`);
       return data;
     } catch (e) {
-      console.log("[API-ERROR]: Cannot fetch the getCountriesByRegion method.");
+      console.log(
+        "[API-ERROR]: Cannot fetch from the getCountriesByRegion method."
+      );
     }
     return [];
   },

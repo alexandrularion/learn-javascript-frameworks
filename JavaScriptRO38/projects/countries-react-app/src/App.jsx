@@ -19,7 +19,6 @@ const router = createBrowserRouter([
     path: "/country/:countryName",
     element: <CountryPage />,
     loader: async ({ params }) => {
-      console.log(params.countryName);
       const data = await Api.getCountryByName(params.countryName);
       return {
         country: data,
