@@ -27,6 +27,7 @@ users.push({
   gender: "m",
 });
 console.log(users); // [{ username: "will_smith", email: "will.smith@gmail.com" },{ username: "katy_smith", email: "katy.smith@gmail.com" }...]
+console.log(users[0].role === "admin"); // false
 
 // explicit static typing for a normal function
 function multiply(a: number, b?: number): number {
@@ -47,17 +48,70 @@ greeting("Hello world!");
 
 // type User = string
 // type User = Array<any>;
-type User = { username: string; email: string; gender?: string }; // '?' = optional = undefined
+type User = {
+  username: string;
+  email: string;
+  gender?: string;
+  role?: "admin" | "guest";
+}; // '?' = optional = undefined
 
 interface Review {
-    name: string;
-    author: User;
-}
-interface Product {
-    name: string;
-    price: number;
-    description: string;
-    reviews: Array<Review>;
+  name: string;
+  author: User;
 }
 
-const products: Array<Product> = [];
+// use interfaces only for objects
+interface Product {
+  name: string;
+  price: number;
+  description: string;
+  reviews: Array<Review>;
+}
+
+// inherit all the properties of Product (instead of copy/paste)
+interface HomeProduct extends Product {
+  material: "plastic" | "lemn" | "altele";
+  stock: 10 | 100 | 1000 | 10000;
+}
+
+const products: Array<HomeProduct> = [
+  {
+    material: "plastic",
+    stock: 10,
+    name: "Chair",
+    price: 20000,
+    description: "",
+    reviews: [],
+  },
+];
+
+// tuple (array)
+const params: ["filter", string, "sort", 1 | 2 | 3 | 4] = [
+  "filter",
+  "category=3&type=4",
+  "sort",
+  3,
+];
+
+console.log(params[0]); // "filter"
+console.log(params[1]); // "category=3&type=4"
+console.log(params[2]); // "sort"
+console.log(params[3]); // 3
+
+// enum (also known as constants)
+enum USER_ROLE {
+  ADMIN = "uKhDZgQRBYYCGcfoVTgkB",
+  GUEST = "guest"
+}
+
+console.log(USER_ROLE.ADMIN); // "uKhDZgQRBYYCGcfoVTgkB"
+console.log(USER_ROLE.GUEST); // "guest"
+
+// the javascript way to do CONSTANTS
+const USER_ROLE_2 = {
+  ADMIN: "uKhDZgQRBYYCGcfoVTgkB",
+  GUEST: "guest"
+}
+
+console.log(USER_ROLE_2.ADMIN); // "uKhDZgQRBYYCGcfoVTgkB"
+console.log(USER_ROLE_2.GUEST); // "guest"
