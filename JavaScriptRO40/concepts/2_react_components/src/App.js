@@ -1,23 +1,33 @@
-import logo from "./logo.svg";
-import "./App.css";
+import Button from "./button";
+import Form from "./form";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          width: "350px",
+          gap: "30px",
+        }}
+      >
+        Hello world!
+        {/* Multiple instances of the same component */}
+        <Button label="Click me!" type="submit" />
+        <Button label="Hello world" type="reset" />
+        {/* label, type, and variant will be passed down to the props object */}
+        <Button label="My Custom Button" type="button" variant="fill" />
+        <Button label="Save" />
+        <Button label="Submit" />
+        <Form />
+      </div>
     </div>
   );
 }

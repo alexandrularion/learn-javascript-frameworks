@@ -1,0 +1,69 @@
+// Task 1: Create a React Project
+// Objective: Set up a new React project using Create React App.
+// Context: Before starting with React exercises, you need a React environment set up. Create React App is a popular way to bootstrap a new React application.
+// Hint: Use the following command to create a new React project:
+// npx create-react-app my-react-app
+// Navigate into the project directory and start the development server:
+// cd my-react-app
+// npm start
+
+
+// Task 2: Basic Component
+// Objective: Create a simple functional component that displays a message.
+// Context: Components are the building blocks of a React application. 
+//          Understanding how to create and render a basic component is essential.
+// Hint: Use a functional component and JSX to return a message.
+
+
+// Task 3: Props
+// Objective: Pass and display props in a component.
+// Context: Props are used to pass data from parent components to child components.
+// Hint: Use destructuring to access the props and render them in the component.
+
+
+// Task 4: State
+// Objective: Manage state in a component.
+// Context: State allows components to create and manage their own data.
+// Hint: Use the `useState` hook to create a state variable and a function to update it.
+
+
+// Task 5: Component Lifecycle (Class Component)
+// Objective: Understand lifecycle methods in class components.
+// Context: Lifecycle methods allow you to perform actions at different stages of a component's life.
+// Hint: Implement `componentDidMount` and `componentWillUnmount` to see when these methods are called.
+
+
+// Task 6: Controlled Components
+// Objective: Create a controlled input component.
+// Context: Controlled components keep the source of truth in the state, ensuring that the UI is always in sync with the data.
+// Hint: Use `useState` to manage the input value and handle the `onChange` event to update the state.
+
+
+// Task 7: Conditional Rendering
+// Objective: Render components conditionally based on state.
+// Context: Conditional rendering allows you to render different UI elements based on certain conditions.
+// Hint: Use a boolean state variable to control what gets rendered.
+
+
+// Task 8: Lists and Keys
+// Objective: Render a list of items using `map`.
+// Context: Rendering lists is a common task in React, and each item should have a unique key for efficient updates.
+// Hint: Use the `map` function to iterate over an array and render each item. Assign a unique key to each list item.
+
+
+// Task 9: Forms
+// Objective: Handle form submission and manage form state.
+// Context: Forms are a common way to collect user input, and managing form state is crucial for handling data properly.
+// Hint: Use `useState` to manage form input values and handle the form's `onSubmit` event to access the input data.
+
+
+// Task 10: Fetching Data
+// Objective: Fetch data from an API and display it.
+// Context: Fetching data from external sources is a common task in web applications.
+// Hint: Use the `useEffect` hook to fetch data when the component mounts and `useState` to store the data.
+
+
+// Task 11: Context API
+// Objective: Use Context API to manage global state.
+// Context: The Context API allows you to share state across multiple components without prop drilling.
+// Hint: Create a context, a provider component to manage the state, and use the context in child components to access the state.
