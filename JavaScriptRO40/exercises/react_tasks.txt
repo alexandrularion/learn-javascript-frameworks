@@ -8,6 +8,7 @@
 // npm start
 
 
+
 // Task 2: Basic Component
 // Objective: Create a simple functional component that displays a message.
 // Context: Components are the building blocks of a React application. 
