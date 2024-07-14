@@ -1,31 +1,41 @@
-// Task 1: Component Lifecycle Methods (Class Component)
+// Task 1: Create a React Project
+// Objective: Set up a new React project using Create React App.
+// Context: Before starting with React exercises, you need a React environment set up. Create React App is a popular way to bootstrap a new React application.
+// Hint: Use the following command to create a new React project:
+// npx create-react-app 12_react_rendering
+// Navigate into the project directory and start the development server:
+// cd 12_react_rendering
+// npm start
+
+
+// Task 2: Component Lifecycle Methods (Class Component)
 // Objective: Understand lifecycle methods in class components.
 // Context: Lifecycle methods allow you to perform actions at different stages of a component's life.
 // Hint: Implement `componentDidMount` and `componentWillUnmount` to see when these methods are called.
 //        Add console logs or alerts to verify the lifecycle method calls.
 
 
-// Task 2: Lists and Keys
+// Task 3: Lists and Keys
 // Objective: Render a list of items using `map`.
 // Context: Rendering lists is a common task in React, and each item should have a unique key for efficient updates.
 // Hint: Use the `map` function to iterate over an array and render each item. Assign a unique key to each list item.
 
 
-// Task 3: Refs
+// Task 4: Refs
 // Objective: Use refs to directly access a DOM element.
 // Context: Refs provide a way to access DOM nodes or React elements created in the render method.
 // Hint: Use `React.createRef` or the `useRef` hook to create a ref and attach it to a DOM element. 
 //        Use the ref to focus an input field when a button is clicked.
 
 
-// Task 4: Events
+// Task 5: Events
 // Objective: Handle events in React components.
 // Context: Handling events in React is similar to handling events on DOM elements, but with some syntax differences.
 // Hint: Create a button and attach an `onClick` event handler. 
 //        In the handler, update the state and display the updated state in the component.
 
 
-// Task 5: Higher-Order Components (HOCs) with Loading message
+// Task 6: Higher-Order Components (HOCs) with Loading message
 // Objective: Create and use a higher-order component to display a loading message (ex: data is being fetched).
 // Context: Higher-order components are functions that take a component and return a new component with additional props or functionality.
 // Hint: Create an HOC that displays a loading message like "Loading...". Use a setTimeout to simulate data fetching.
