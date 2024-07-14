@@ -1,5 +1,9 @@
 import Cart from "./components/cart";
 import ProductList from "./components/product-list";
+import WithLogger from "./hocs/with-logger";
+
+// Higher Order Component (HOC) Instance
+const EnhancedProductList = WithLogger(ProductList, "ProductList");
 
 function App() {
   const products = [
@@ -29,7 +33,7 @@ function App() {
   return (
     <div>
       <Cart />
-      <ProductList products={products} />
+      <EnhancedProductList products={products} />
     </div>
   );
 }
