@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  background: #ccc;
+  color: #4c4c4c;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+  appearance: none;
+}

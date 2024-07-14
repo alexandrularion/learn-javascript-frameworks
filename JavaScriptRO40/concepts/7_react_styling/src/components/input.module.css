@@ -1,0 +1,18 @@
+input {
+  font-size: 16px;
+  background: #ccc;
+  padding: 5px 10px;
+  color: #000;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 16px;
+}
+
+input:hover {
+  background: #bbbbbb;
+}
+
+input::placeholder {
+  color: red;
+}
