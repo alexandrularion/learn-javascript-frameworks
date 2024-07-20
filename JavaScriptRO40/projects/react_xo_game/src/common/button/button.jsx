@@ -21,6 +21,8 @@ const Button = (props) => {
         return "variant-secondary";
       case "tertiary":
         return "variant-tertiary";
+      case "quaternary":
+        return "variant-quaternary";
       default:
         return "variant-primary";
     }

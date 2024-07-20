@@ -1,4 +1,5 @@
 .container {
+  width: 100%;
   appearance: none;
   outline: none;
   border: none;
@@ -46,4 +47,12 @@
 
 .variant-tertiary:hover {
   background: var(--btn-background-color-2);
+}
+
+.variant-quaternary {
+  background: none;
+}
+
+.variant-quaternary:hover {
+  background: var(--btn-background-color-1);
 }
