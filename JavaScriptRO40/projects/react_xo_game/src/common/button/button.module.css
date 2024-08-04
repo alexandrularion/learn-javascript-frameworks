@@ -8,6 +8,7 @@
   font-weight: var(--heading-font-weight);
   font-family: var(--heading-font-family);
   transition: 0.2s all ease-in-out;
+  cursor: pointer;
 }
 
 .size-lg {

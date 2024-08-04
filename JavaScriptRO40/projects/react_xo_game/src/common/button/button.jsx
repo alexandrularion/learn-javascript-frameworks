@@ -31,6 +31,7 @@ const Button = (props) => {
   return (
     <button
       className={`${styles["container"]} ${styles[size]} ${styles[variant]}`}
+      onClick={props.onClick}
     >
       {props.children}
     </button>
