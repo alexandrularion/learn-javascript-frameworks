@@ -30,7 +30,7 @@ const Button = (props) => {
 
   return (
     <button
-      className={`${styles["container"]} ${styles[size]} ${styles[variant]}`}
+      className={`${styles["container"]} ${styles[size]} ${styles[variant]} ${props.className}`}
       onClick={props.onClick}
     >
       {props.children}

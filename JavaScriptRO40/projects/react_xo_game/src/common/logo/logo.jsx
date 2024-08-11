@@ -1,8 +1,8 @@
 import styles from "./logo.module.css";
 
-const Logo = () => {
+const Logo = (props) => {
   return (
-    <div className={styles["container"]}>
+    <div className={`${styles["container"]} ${props.className}`}>
       <img src="/logo.svg" alt="XO Game - Logo" />
     </div>
   );
