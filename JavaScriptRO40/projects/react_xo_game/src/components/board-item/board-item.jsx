@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./board-item.module.css";
 import XOutlineMark from "../../assets/x_outline.svg?react";
 import OOutlineMark from "../../assets/o_outline.svg?react";
+import XMarkSVG from "../../assets/x.svg?react";
+import OMarkSVG from "../../assets/o.svg?react";
 import CONSTANTS from "../../common/constants";
 
 const BoardItem = (props) => {
@@ -10,6 +12,8 @@ const BoardItem = (props) => {
 
   const outlineMark =
     playerType === CONSTANTS.PLAYER_X ? <XOutlineMark /> : <OOutlineMark />;
+  const mark =
+    props.player === CONSTANTS.PLAYER_X ? <XMarkSVG /> : <OMarkSVG />;
 
   const handleMouseEnter = () => {
     setIsHover(true);
@@ -34,7 +38,8 @@ const BoardItem = (props) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {isHover ? outlineMark : null}
+      {isHover && props.player === null ? outlineMark : null}
+      {props.player !== null ? mark : null}
     </div>
   );
 };
