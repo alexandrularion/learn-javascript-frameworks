@@ -53,10 +53,11 @@ const BoardGrid = () => {
   ]);
 
   const [player, setPlayer] = React.useState(CONSTANTS.PLAYER_X);
+  const [chosenPlayer, setChosenPlayer] = React.useState(CONSTANTS.PLAYER_X);
 
   const handleClick = (index) => {
     // check if the player property is not null
-    if (board[index].player) {
+    if (board[index].player || player !== chosenPlayer) {
       // exit from the function without doing anything
       return;
     }
@@ -66,9 +67,6 @@ const BoardGrid = () => {
     setBoard(newBoard);
 
     // we check first the type of the player chosen at main menu
-    const chosenPlayer = localStorage.getItem(
-      CONSTANTS.LOCAL_STORAGE.PLAYER_TYPE
-    );
     setPlayer(
       chosenPlayer === CONSTANTS.PLAYER_X
         ? CONSTANTS.PLAYER_O
@@ -77,12 +75,37 @@ const BoardGrid = () => {
   };
 
   React.useEffect(() => {
-    const chosenPlayer = localStorage.getItem(
+    if (player !== chosenPlayer) {
+      const timer = setTimeout(() => {
+        const emptyItems = board.filter((item) => item.player === null);
+
+        if (emptyItems.length === 0) {
+          return;
+        }
+
+        const randomIndex = Math.floor(Math.random() * emptyItems.length);
+        const item = emptyItems[randomIndex];
+
+        board[item.index].player = player;
+        const newBoard = [...board];
+
+        setBoard(newBoard);
+        setPlayer(
+          chosenPlayer === CONSTANTS.PLAYER_X && player !== CONSTANTS.PLAYER_O
+            ? CONSTANTS.PLAYER_O
+            : CONSTANTS.PLAYER_X
+        );
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [player, board, chosenPlayer]);
+
+  React.useEffect(() => {
+    const lsChosenPlayer = localStorage.getItem(
       CONSTANTS.LOCAL_STORAGE.PLAYER_TYPE
     );
-    if (player !== chosenPlayer) {
-    }
-  }, [player]);
+    setChosenPlayer(lsChosenPlayer);
+  }, []);
 
   return (
     <div className={styles["container"]}>
@@ -91,6 +114,7 @@ const BoardGrid = () => {
           key={item.id}
           index={item.index}
           player={item.player}
+          isDisabled={player !== chosenPlayer}
           onClick={() => handleClick(item.index)}
         />
       ))}

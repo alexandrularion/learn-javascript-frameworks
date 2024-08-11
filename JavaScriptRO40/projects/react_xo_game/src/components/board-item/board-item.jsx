@@ -33,7 +33,9 @@ const BoardItem = (props) => {
 
   return (
     <div
-      className={styles["container"]}
+      className={`${styles["container"]} ${
+        props.isDisabled ? styles["disabled"] : ""
+      }`}
       onClick={props.onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
