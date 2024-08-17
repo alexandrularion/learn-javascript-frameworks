@@ -9,17 +9,20 @@ import React from "react";
 const BoardPage = () => {
   const [board, setBoard] = React.useState(CONSTANTS.BOARD_GRID);
   const [winPlayer, setWinPlayer] = React.useState(null); // falsy value by default
+  const [player, setPlayer] = React.useState(CONSTANTS.PLAYER_X);
 
   return (
     <Layout>
-      <BoardHeader />
+      <BoardHeader player={player} setBoard={setBoard} />
       <BoardGrid
         board={board}
         setBoard={setBoard}
         winPlayer={winPlayer}
         setWinPlayer={setWinPlayer}
+        player={player}
+        setPlayer={setPlayer}
       />
-      <BoardFooter />
+      <BoardFooter winPlayer={winPlayer} />
       <WinLoseDialog
         board={board}
         setBoard={setBoard}

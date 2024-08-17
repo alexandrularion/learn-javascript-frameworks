@@ -3,6 +3,9 @@ const CONSTANTS = {
   PLAYER_O: "player_o",
   LOCAL_STORAGE: {
     PLAYER_TYPE: "player_type",
+    PLAYER_X_WINS: "player_x_wins",
+    PLAYER_O_WINS: "player_o_wins",
+    TIED_ROUNDS: "tied_rounds",
   },
   WINNING_COMBINATIONS: [
     [0, 1, 2],

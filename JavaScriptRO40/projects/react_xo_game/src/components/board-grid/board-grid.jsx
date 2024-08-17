@@ -18,9 +18,8 @@ const checkWin = (player, board) => {
 };
 
 const BoardGrid = (props) => {
-  const { board, setBoard, setWinPlayer, winPlayer } = props;
+  const { board, setBoard, setWinPlayer, winPlayer, player, setPlayer } = props;
 
-  const [player, setPlayer] = React.useState(CONSTANTS.PLAYER_X);
   const [chosenPlayer, setChosenPlayer] = React.useState(CONSTANTS.PLAYER_X);
 
   const handleClick = (index) => {
@@ -30,8 +29,18 @@ const BoardGrid = (props) => {
       return;
     }
 
-    board[index].player = player;
-    const newBoard = [...board];
+    // outdated because its updating the CONSTANTS.BOARD_GRID by reference
+    // board[index].player = player;
+    // const newBoard = [...board];
+    const newBoard = board.map((item) => {
+      if (item.index === index) {
+        return {
+          ...item,
+          player,
+        };
+      }
+      return item;
+    });
     setBoard(newBoard);
 
     // check if the real player has matched a winning combination
@@ -39,6 +48,8 @@ const BoardGrid = (props) => {
     if (hasPlayerWon) {
       // We set the win player that is used in the parent component
       setWinPlayer(player);
+      setPlayer(CONSTANTS.PLAYER_X);
+      return;
     }
 
     // we check first the type of the player chosen at main menu
@@ -59,10 +70,19 @@ const BoardGrid = (props) => {
         }
 
         const randomIndex = Math.floor(Math.random() * emptyItems.length);
-        const item = emptyItems[randomIndex];
+        const currentItem = emptyItems[randomIndex];
 
-        board[item.index].player = player;
-        const newBoard = [...board];
+        // board[item.index].player = player;
+        // const newBoard = [...board];
+        const newBoard = board.map((item) => {
+          if (item.index === currentItem.index) {
+            return {
+              ...item,
+              player,
+            };
+          }
+          return item;
+        });
         setBoard(newBoard);
 
         // check if the boot player has matched a winning combination
@@ -70,6 +90,8 @@ const BoardGrid = (props) => {
         if (hasPlayerWon) {
           // We set the win player that is used in the parent component
           setWinPlayer(player);
+          setPlayer(CONSTANTS.PLAYER_X);
+          return;
         }
 
         setPlayer(
@@ -80,7 +102,15 @@ const BoardGrid = (props) => {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [player, board, chosenPlayer, setBoard, setWinPlayer, winPlayer]);
+  }, [
+    player,
+    board,
+    chosenPlayer,
+    setBoard,
+    setWinPlayer,
+    winPlayer,
+    setPlayer,
+  ]);
 
   React.useEffect(() => {
     const lsChosenPlayer = localStorage.getItem(

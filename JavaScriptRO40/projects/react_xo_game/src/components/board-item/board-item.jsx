@@ -21,6 +21,10 @@ const BoardItem = (props) => {
   const handleMouseLeave = () => {
     setIsHover(false);
   };
+  const handleClick = () => {
+    props.onClick();
+    setIsHover(false);
+  };
 
   React.useEffect(() => {
     const lsPlayerType = localStorage.getItem(
@@ -36,7 +40,7 @@ const BoardItem = (props) => {
       className={`${styles["container"]} ${
         props.isDisabled ? styles["disabled"] : ""
       }`}
-      onClick={props.onClick}
+      onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

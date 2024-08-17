@@ -7,12 +7,22 @@ import Dialog from "../../common/dialog/dialog";
 import { useNavigate } from "react-router-dom";
 import CONSTANTS from "../../common/constants";
 
+const setStatisticsInLocalStorage = (key) => {
+  const lsPlayerWins = localStorage.getItem(key) || "0";
+  localStorage.setItem(key, String(Number(lsPlayerWins) + 1));
+};
+
 const WinLoseDialog = (props) => {
   const navigate = useNavigate();
 
   const handleQuitClick = () => {
+    // Go the main menu page
     navigate("/");
-    // do other stuff
+
+    // Remove statistics from local storage
+    localStorage.removeItem(CONSTANTS.LOCAL_STORAGE.PLAYER_O_WINS);
+    localStorage.removeItem(CONSTANTS.LOCAL_STORAGE.PLAYER_X_WINS);
+    localStorage.removeItem(CONSTANTS.LOCAL_STORAGE.TIED_ROUNDS);
   };
 
   const handleNextRoundClick = () => {
@@ -21,6 +31,13 @@ const WinLoseDialog = (props) => {
 
     // Reset the player who win to default (to close the dialog)
     props.setWinPlayer(null);
+
+    // Set the round statistics
+    if (props.hasXWon) {
+      setStatisticsInLocalStorage(CONSTANTS.LOCAL_STORAGE.PLAYER_X_WINS);
+    } else {
+      setStatisticsInLocalStorage(CONSTANTS.LOCAL_STORAGE.PLAYER_O_WINS);
+    }
   };
 
   return (
