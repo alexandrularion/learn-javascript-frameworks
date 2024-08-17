@@ -9,6 +9,8 @@
   font-family: var(--heading-font-family);
   transition: 0.2s all ease-in-out;
   cursor: pointer;
+  color: var(--text-color-2);
+  text-wrap: nowrap;
 }
 
 .size-lg {
