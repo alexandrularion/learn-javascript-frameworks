@@ -1,10 +1,34 @@
-#### 1. **Check the Project Setup**  
-   - **Task**: Confirm the app is working by running the development server and inspecting the default Vite React template.  
-   - **Tips**:  
-     - Run `npm run dev` to start the development server.  
-     - Open the app in a browser and verify the default page loads.  
-     - Clean up the default `App.jsx` file, leaving only an empty `<div>`.  
-   - **Code to Reset `App.jsx`**:  
+### Task 1: **Set Up the App with Vite**  
+
+- **Task**: Create a React app using Vite. This will set up the development environment for building components.  
+- **Steps**:  
+  1. Open your terminal and create a new Vite project:  
+     ```bash
+     npm create vite@latest my-react-app
+     ```  
+     - **Project Name**: Use `my-react-app` or another name.  
+     - **Framework**: Select `React`.  
+     - **Variant**: Choose `JavaScript` or `TypeScript` based on preference.  
+
+  2. Navigate to the project directory:  
+     ```bash
+     cd my-react-app
+     ```
+
+  3. Install dependencies:  
+     ```bash
+     npm install
+     ```
+
+  4. Start the development server:  
+     ```bash
+     npm run dev
+     ```
+
+  5. Open the URL displayed in your terminal (e.g., `http://localhost:5173`) in your browser to confirm the setup.
+
+- **Clean Up the Default Template**:  
+  1. Open `App.jsx` in your editor and replace the default code:  
      ```jsx
      function App() {
        return <div>{/* Add components here */}</div>;
@@ -12,8 +36,21 @@
 
      export default App;
      ```
+  2. Remove unused files from the `src/assets` folder if any exist.
 
----
+- **Tips**:  
+  - If you encounter errors, ensure Node.js is installed (minimum version: 14.18+ or 16+).  
+  - After setup, your project structure should resemble this:  
+    ```
+    my-react-app/
+    ├── public/
+    ├── src/
+    │   ├── App.jsx
+    │   ├── index.css
+    │   ├── main.jsx
+    ├── package.json
+    ├── vite.config.js
+    ```
 
 #### 2. **Create a Simple Component**  
    - **Task**: Inside the `src` folder, create a `Welcome` component that displays "Hello, React!".  
