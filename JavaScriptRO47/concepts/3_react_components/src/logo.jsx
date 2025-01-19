@@ -5,7 +5,9 @@ const Logo = (props) => {
   return (
     <div>
       <img src={props.logoUrl} />
-      <h1>{props.appName}</h1>
+      {/* Tip: The heading is rendered conditionally based on a condition */}
+      {/* Tip: Syntax: condition ? value1 : value2 */}
+      {props.isHeadingVisible ? <h1>{props.appName}</h1> : null}
     </div>
   );
 };

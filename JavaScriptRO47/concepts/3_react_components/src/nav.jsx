@@ -20,6 +20,18 @@ const Navigation = () => {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmT92tuZnM7M65-c1zmdAX3PI5sbrhrk9lqA&s"
         }
         appName={"MyApp"}
+        // Tip: The isHeadingVisible attribute will determine if the heading within Logo component is visible or not
+        isHeadingVisible={true}
+      />
+      {/* Tip: We can use the same component multiple times as it is reusable with diferent props values */}
+      <Logo
+        // Tip: The attributes below are sent to the props object within the Logo component
+        logoUrl={
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3Kmtw8XWA4LvkZrOl8kVGKxLf1gkM1wg70g&s"
+        }
+        appName={"MySite.net"}
+        // Tip: The isHeadingVisible attribute will determine if the heading within Logo component is visible or not
+        isHeadingVisible={false}
       />
 
       {/* Tip: style the tag with "style" attribute */}
