@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from "react-router";
+import HomePage from "./pages/home.page";
+import AboutPage from "./pages/about.page";
+import JobsPage from "./pages/jobs.page";
+import JobPage from "./pages/job.page";
+import JobApplyPage from "./pages/job-apply.page";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Routes>
+      <Route index={true} element={<HomePage />} />
+      <Route path="about" element={<AboutPage />} />
+      <Route path="jobs">
+        <Route index={true} element={<JobsPage />} />
+        <Route path=":jobId" element={<JobPage />} />
+        <Route path=":jobId/apply" element={<JobApplyPage />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
