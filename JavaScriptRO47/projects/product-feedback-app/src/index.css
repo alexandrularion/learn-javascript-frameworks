@@ -7,6 +7,19 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* COLORS */
+  --color-1: #ad1fea;
+  --color-2: #4661e6;
+  --color-3: #373f68;
+  --color-4: #d73737;
+  --color-5: #fff;
+  --grey-color-1: #f2f4ff;
+  --grey-color-2: #f7f8fd;
+  --grey-color-3: #647196;
+
+  /* FONTS */
+  --primary-font: "Jost", serif;
 }
 
 a {

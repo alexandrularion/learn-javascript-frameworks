@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  border: none;
+  background: none;
+  height: 44px;
+  padding: 0 30px;
+  border-radius: 10px;
+  color: var(--grey-color-1);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--primary-font);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.container:hover {
+  filter: brightness(1.5);
+}
+
+.container--primary {
+  background-color: var(--color-1);
+}
+
+.container--secondary {
+  background-color: var(--color-2);
+}
+
+.container--tertiary {
+  background-color: var(--color-3);
+}
+
+.container--quaternary {
+  background-color: var(--color-4);
+}
+
+.container--quinary {
+  border-radius: 0;
+  color: var(--grey-color-3);
+  height: max-content;
+  padding: 0;
+}
+
+.container--quinary:hover {
+  border-bottom: 1px solid var(--grey-color-3);
+}
+
+/* BEM = BLOCK ELEMENT MODIFIER -> i.e. container = block, container--primary = modifier */
+
+/*
+  block = container
+  element = container__heading
+  modifier = container--md
+  modifier = container__heading--lg
+*/
