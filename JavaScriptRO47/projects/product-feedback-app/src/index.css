@@ -14,14 +14,26 @@
   --color-3: #373f68;
   --color-4: #d73737;
   --color-5: #fff;
+  --color-6: #3a4374;
   --grey-color-1: #f2f4ff;
   --grey-color-2: #f7f8fd;
   --grey-color-3: #647196;
 
   /* FONTS */
   --primary-font: "Jost", serif;
+  --font-size-1: 24px;
+  --font-size-2: 20px;
+  --font-size-3: 18px;
+  --font-size-4: 14px;
+  --font-size-5: 16px;
+  --font-size-6: 15px;
+  --font-size-7: 13px;
 }
 
 a {
   text-decoration: inherit;
+}
+
+body {
+  background: var(--grey-color-2);
 }

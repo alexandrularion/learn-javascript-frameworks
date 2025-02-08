@@ -1,0 +1,26 @@
+.container {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  color: var(--color-6);
+}
+
+.container--xl {
+  font-size: var(--font-size-1);
+  line-height: 35px;
+  letter-spacing: -0.33px;
+}
+.container--lg {
+  font-size: var(--font-size-2);
+  line-height: 29px;
+  letter-spacing: -0.25px;
+}
+.container--md {
+  font-size: var(--font-size-3);
+  line-height: 26px;
+  letter-spacing: -0.25px;
+}
+.container--sm {
+  font-size: var(--font-size-4);
+  line-height: 20px;
+  letter-spacing: -0.2px;
+}
