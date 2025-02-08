@@ -1,4 +1,4 @@
-import { Button, Heading } from "../common";
+import { Button, Heading, Text } from "../common";
 import styles from "./suggestions.module.css";
 
 const SuggestionsPage = () => {
@@ -14,6 +14,24 @@ const SuggestionsPage = () => {
       <Heading size="lg">Hello world</Heading>
       <Heading size="md">Hello world</Heading>
       <Heading size="sm">Hello world</Heading>
+      <Text size="lg">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
+        accusantium maxime unde praesentium error atque similique optio
+        sapiente! Sit vel quis repellendus voluptatem ut tempore provident rerum
+        optio maxime hic.
+      </Text>
+      <Text size="md">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
+        accusantium maxime unde praesentium error atque similique optio
+        sapiente! Sit vel quis repellendus voluptatem ut tempore provident rerum
+        optio maxime hic.
+      </Text>
+      <Text size="sm">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos
+        accusantium maxime unde praesentium error atque similique optio
+        sapiente! Sit vel quis repellendus voluptatem ut tempore provident rerum
+        optio maxime hic.
+      </Text>
     </main>
   );
 };

@@ -1,0 +1,19 @@
+.container {
+  font-family: var(--primary-font);
+  font-weight: 400;
+  color: var(--color-6);
+}
+
+.container--lg {
+  font-size: var(--font-size-5);
+  line-height: 23px;
+}
+.container--md {
+  font-size: var(--font-size-6);
+  line-height: 22px;
+}
+.container--sm {
+  font-size: var(--font-size-7);
+  line-height: 19px;
+  font-weight: 600;
+}
