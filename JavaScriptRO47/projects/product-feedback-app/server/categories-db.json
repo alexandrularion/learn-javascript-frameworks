@@ -1,0 +1,26 @@
+[
+    {
+        "id": "eb223c85-551c-4119-96f5-1b46f56fbca1",
+        "name": "All"
+    },
+    {
+        "id": "a888fdc9-f946-40eb-abfc-e76535bb2113",
+        "name": "UI"
+    },
+    {
+        "id": "55b2028a-3f0c-4513-870f-5094f6a7cc9b",
+        "name": "UX"
+    },
+    {
+        "id": "1fbbdaab-95e6-4c20-b10a-25106d369ef6",
+        "name": "Enhancement"
+    },
+    {
+        "id": "5ee0ca54-8dd2-4193-b7d3-1109f05c4789",
+        "name": "Bug"
+    },
+    {
+        "id": "0b7b11cd-14ab-4c45-87c9-8f946540a8f1",
+        "name": "Feature"
+    }
+]

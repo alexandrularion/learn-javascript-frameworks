@@ -1,0 +1,32 @@
+[
+    {
+        "id": "f53a73e4-2c13-4c76-a554-b490090af035",
+        "name": "Submit more projects",
+        "status": "planned",
+        "description": "Please provide a way to submit more projects at once.",
+        "upVotes": 20,
+        "totalComments": 0,
+        "categoryId": "1fbbdaab-95e6-4c20-b10a-25106d369ef6",
+        "userId": "f926e4b4-37f8-4536-aa47-08713fd635bc"
+    },
+    {
+        "id": "193db3c7-8120-4b6a-a6e4-cf25187d1c2b",
+        "name": "Provide feedback within the app",
+        "status": "live",
+        "description": "Add a form where the user can submit his feedback within the application.",
+        "upVotes": 300,
+        "totalComments": 2,
+        "categoryId": "0b7b11cd-14ab-4c45-87c9-8f946540a8f1",
+        "userId": "c0c4671f-8d90-4ac2-81e9-b9d58063a33c"
+    },
+    {
+        "id": "551bdab9-8767-4bdc-a4c8-1b048972be24",
+        "name": "Provide a better navigation bar",
+        "status": "in_progress",
+        "description": "When accessing the app is hard to find all the links related to projects.",
+        "upVotes": 900,
+        "totalComments": 0,
+        "categoryId": "55b2028a-3f0c-4513-870f-5094f6a7cc9b",
+        "userId": "f926e4b4-37f8-4536-aa47-08713fd635bc"
+    }
+]
