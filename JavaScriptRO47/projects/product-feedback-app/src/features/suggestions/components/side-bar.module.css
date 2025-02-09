@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.container__gradient {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 30px;
+  background: radial-gradient(
+    farthest-corner,
+    #e84d70 0%,
+    #a337f6 53%,
+    #28a7ed 100%
+  );
+  border-radius: 10px;
+}

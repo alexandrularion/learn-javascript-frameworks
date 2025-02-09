@@ -1,3 +1,15 @@
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__layout {
+  --sticky-column-width: 255px;
+  display: grid;
+  grid-template-columns: var(--sticky-column-width) calc(
+      100% - var(--sticky-column-width) - 30px
+    );
+  width: 1110px;
+  gap: 30px;
 }
