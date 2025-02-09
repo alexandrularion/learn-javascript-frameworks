@@ -6,14 +6,22 @@
 
 .container__gradient {
   display: flex;
-  align-items: flex-end;
+  justify-content: flex-end;
   flex-direction: column;
   padding: 30px;
+  height: 137px;
   background: radial-gradient(
-    farthest-corner,
-    #e84d70 0%,
+    circle at top right,
+    #e84d71 0%,
     #a337f6 53%,
     #28a7ed 100%
   );
   border-radius: 10px;
+}
+
+.container__gradient h1 {
+  color: var(--color-5);
+}
+.container__gradient p {
+  color: var(--grey-color-2);
 }
