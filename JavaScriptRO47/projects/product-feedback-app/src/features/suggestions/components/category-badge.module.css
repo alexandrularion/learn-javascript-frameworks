@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grey-color-1);
+  border-radius: 10px;
+  height: 30px;
+  width: max-content;
+  padding: 0 15px;
+  font-family: var(--primary-font);
+  font-size: var(--font-size-7);
+  font-weight: 600;
+  color: var(--color-2);
+}

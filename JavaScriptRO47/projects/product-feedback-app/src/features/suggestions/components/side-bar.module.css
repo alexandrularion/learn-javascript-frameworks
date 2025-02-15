@@ -25,3 +25,16 @@
 .container__gradient p {
   color: var(--grey-color-2);
 }
+
+.container__categories {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--color-5);
+  border-radius: 10px;
+  padding: 24px;
+  gap: 10px;
+}
+
+.container__categories p {
+  color: var(--color-3);
+}
