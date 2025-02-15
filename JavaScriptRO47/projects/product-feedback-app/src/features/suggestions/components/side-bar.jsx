@@ -40,9 +40,9 @@ const SideBar = () => {
             <CategoryBadge key={category.id}>{category.name}</CategoryBadge>
           ))
         ) : isLoading ? (
-          <Text>Loading... </Text>
+          <Text size="lg">Loading... </Text>
         ) : (
-          <Text>No categories found.</Text>
+          <Text size="lg">No categories found.</Text>
         )}
       </div>
     </div>

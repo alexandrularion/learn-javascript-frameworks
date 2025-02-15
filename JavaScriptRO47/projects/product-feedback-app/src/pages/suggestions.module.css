@@ -14,3 +14,9 @@
   width: 1110px;
   gap: 30px;
 }
+
+.container__content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
