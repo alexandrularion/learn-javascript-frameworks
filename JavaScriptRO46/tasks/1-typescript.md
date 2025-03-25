@@ -1,3 +1,26 @@
+#### 📌 Steps to Create and Run a TypeScript File with `ts-node`
+
+✅ **1. Create a TypeScript File**  
+Create a file named `app.ts` and add the following code:  
+```ts
+// app.ts
+const greet = (name: string): string => {
+  return `Hello, ${name}!`;
+};
+
+console.log(greet("John"));
+```
+
+---
+
+✅ **2. Run the TypeScript File with ts-node**  
+Execute the file using:  
+```sh
+npx ts-node app.ts
+```
+
+---
+
 #### 1. **Add Types to Variables**  
 **Task:** Add TypeScript types to the following variables.  
 
