@@ -14,7 +14,9 @@ const Heading = (props) => {
 
   return (
     // Tip: We use brackets {} to insert JS expression inside JSX
-    <h1 className={generateClassName(props.size || "md")}>{props.children}</h1>
+    <h1 style={props.style} className={generateClassName(props.size || "md")}>
+      {props.children}
+    </h1>
   );
 };
 

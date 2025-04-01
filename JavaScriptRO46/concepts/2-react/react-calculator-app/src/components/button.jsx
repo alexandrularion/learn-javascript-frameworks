@@ -19,7 +19,10 @@ const Button = (props) => {
   return (
     // Tip: JSX (JavaScript XML) - the code is HTML look alike
     // Tip: You can insert JavaScript code within a pair of brackets {}
-    <button className={generateClassName(props.variant || "secondary")}>
+    <button
+      style={props.style}
+      className={generateClassName(props.variant || "secondary")}
+    >
       {props.children}
     </button>
   );
