@@ -22,6 +22,7 @@ const Button = (props) => {
     <button
       style={props.style}
       className={generateClassName(props.variant || "secondary")}
+      onClick={props.onClick}
     >
       {props.children}
     </button>
