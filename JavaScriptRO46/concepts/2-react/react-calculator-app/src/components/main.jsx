@@ -3,11 +3,16 @@ import Button from "./button";
 import Heading from "./heading";
 import React from "react";
 
-const operations = ["/", "*", "-", "+", "%"];
+const operations = ["÷", "×", "-", "+", "%"];
 
 const Main = () => {
   // Tip: State is data stored inside our component that can be changed over time
   const [output, setOutput] = React.useState("0"); // Tip: The value returned [getter, setter]
+  const [hasResult, setHasResult] = React.useState(false);
+  const hasOperation = React.useMemo(() => {
+    // Tip: Check if the output contains any operation (e.g. + - / *)
+    return !!output.split("").find((char) => operations.includes(char));
+  }, [output]);
 
   const handleOperation = (operation) => {
     console.log(`[Action]: (${operation}) - `, output);
@@ -27,17 +32,9 @@ const Main = () => {
   const handleNumber = (number) => {
     console.log(`[Action]: (${number}) - `, output);
 
-    let hasOperation = false;
-
-    // Tip: Always reset to the latest number if no operation found
-    output.split("").forEach((char) => {
-      if (operations.includes(char)) {
-        hasOperation = true;
-      }
-    });
-
-    if (!hasOperation) {
+    if ((!hasOperation && hasResult) || (output === "0" && !hasResult)) {
       setOutput(number);
+      setHasResult(false);
     } else {
       setOutput(output + number);
     }
@@ -54,13 +51,49 @@ const Main = () => {
         setOutput("0"); // Tip: Set the state to the initial value
       },
     },
-    { name: "±", variant: "secondary", gridArea: "a2", onClick: () => {} },
-    { name: "%", variant: "secondary", gridArea: "a3", onClick: () => {} },
+    {
+      name: "±",
+      variant: "secondary",
+      gridArea: "a2",
+      onClick: () => {
+        // Tip: Split the output in multiple elements i.e. ['20', '30', '5', '2', '5', '100.555']
+        const splitedOutput = output.split(/[+|-|÷|×|%]/);
+        // Tip: Take the latest number, i.e. '100.555'
+        const lastElementInOutput = splitedOutput[splitedOutput.length - 1];
+
+        if (lastElementInOutput) {
+          const toggleRegex = /\(+[-]\w+\)/;
+          // Tip: The regex only takes the last element within the output
+          const replaceRegex = new RegExp(`(.*)${lastElementInOutput}`);
+
+          if (toggleRegex.test(lastElementInOutput)) {
+            // Tip: Make the last number positive
+            // const removeRegex = new RegExp("\\(|-|\\)", "g");
+            const newLastElement = lastElementInOutput
+              .replace("(", "")
+              .replace(")", "")
+              .replace("-", "");
+            setOutput(output.replace(replaceRegex, `$1${newLastElement}`));
+          } else {
+            // Tip: Make the last number negative
+            const newLastElement = `(-${lastElementInOutput})`;
+            // Tip: $1 - keeps the string before the last element
+            setOutput(output.replace(replaceRegex, `$1${newLastElement}`));
+          }
+        }
+      },
+    },
+    {
+      name: "%",
+      variant: "secondary",
+      gridArea: "a3",
+      onClick: () => handleOperation("%"),
+    },
     {
       name: "÷",
       variant: "primary",
       gridArea: "a4",
-      onClick: () => handleOperation("/"),
+      onClick: () => handleOperation("÷"),
     },
 
     // Row 2
@@ -86,7 +119,7 @@ const Main = () => {
       name: "×",
       variant: "primary",
       gridArea: "b4",
-      onClick: () => handleOperation("*"),
+      onClick: () => handleOperation("×"),
     },
 
     // Row 3
@@ -148,14 +181,37 @@ const Main = () => {
       gridArea: "e1",
       onClick: () => handleNumber("0"),
     },
-    { name: ".", variant: "secondary", gridArea: "e2", onClick: () => {} },
+    {
+      name: ".",
+      variant: "secondary",
+      gridArea: "e2",
+      onClick: () => {
+        // Tip: Split the output in multiple elements i.e. ['20', '30', '5', '2', '5', '100.555']
+        const splitedOutput = output.split(/[+|-|÷|×|%]/);
+        // Tip: Take the latest number, i.e. '100.555'
+        const lastElementInOutput = splitedOutput[splitedOutput.length - 1];
+
+        // Tip: Add the dot only if the latest number doesn't include it already or is not falsy
+        if (lastElementInOutput.includes(".") || !lastElementInOutput) {
+          return;
+        }
+        setOutput(output + ".");
+      },
+    },
     {
       name: "=",
       variant: "primary",
       gridArea: "e3",
       onClick: () => {
-        const result = eval(output); // Tip: Eval evaluates the JavaScript code given as string and run it
+        const newOutput = output
+          .replaceAll("%", "/100")
+          .replaceAll("÷", "/")
+          .replaceAll("×", "*");
+
+        console.log(newOutput);
+        const result = eval(newOutput); // Tip: Eval evaluates the JavaScript code given as string and run it
         setOutput(String(result)); // Tip: String constructor is used to convert any type to string
+        setHasResult(true);
       },
     },
   ];
