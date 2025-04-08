@@ -2,7 +2,7 @@
   appearance: none;
   border: none;
   background: none;
-  font-size: 33px;
+  font-size: 40px;
   font-weight: 400;
   color: #fff;
   width: 90px;
@@ -36,4 +36,16 @@
 .container--secondary:hover,
 .container--secondary:active {
   background: #626262;
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    /* From 90px to a smaller size */
+    width: 19vw;
+    height: 19vw;
+    font-size: 30px;
+  }
+  .container--tertiary {
+    width: 100%;
+  }
 }
