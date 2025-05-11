@@ -6,8 +6,8 @@
   - Follow the previous steps for setting up the Vite project to ensure you have a clean slate for this section.
 
 ```bash
-npm create vite@latest react-rendering --template react
-cd react-rendering
+npm create vite@latest my-react-rendering --template react
+cd my-react-rendering
 npm install
 npm run dev
 ```
