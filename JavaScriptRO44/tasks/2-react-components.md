@@ -1,214 +1,253 @@
-### Task 1: **Initialize a Notes App with Vite**  
-- **Task**: Set up a Vite project called `notes-app` using React.  
-- **Steps**:  
-  1. Create the Vite project:  
-     ```bash
-     npm create vite@latest notes-app
-     ```
-     - Select `React` and your preferred variant.  
-  2. Navigate and install dependencies:  
-     ```bash
-     cd notes-app  
-     npm install
-     npm run dev
-     ```
-  3. Confirm the app runs in your browser at the local address.
+## ✅ Task 1: **Create a Vite + React Project**
 
-- **Clean Up**:
-  - Remove demo styles and images from `src/assets`.
-  - Replace `App.jsx` with:
-    ```jsx
-    function App() {
-      return <div>{/* Main app components */}</div>;
-    }
-
-    export default App;
-    ```
-
+- **Task**: Set up your React + Vite project.
 - **Tips**:
-  - Use a folder name relevant to your project idea.
-  - Make sure Node.js is installed properly.
+  - Open your terminal and follow the steps to create a new Vite + React project.
+  - `npm create vite@latest` is the command that scaffolds the project for you.
+  - After setting up, run the development server with `npm run dev` to see the initial app in the browser.
+  - **Ensure that your project runs**: Navigate to `http://localhost:5173` to confirm that everything works.
+
+```bash
+npm create vite@latest my-react-app --template react
+cd my-react-app
+npm install
+npm run dev
+```
+
+- **Clean `App.jsx`**:
+```jsx
+function App() {
+  return <div>App is working!</div>;
+}
+
+export default App;
+```
 
 ---
 
-### Task 2: **Create a Header Component**  
-- **Task**: Create a `Header` component with the title "My Notes App".  
+## Task 2: **Create Your First React Component**
+
+- **Task**: Create a component that returns a simple `h1` with a title.
 - **Tips**:
-  - Use a semantic tag like `<header>`.
-- **Base Code**:  
-  ```jsx
-  // src/Header.jsx
-  function Header() {
-    return <header><h1>{/* Title here */}</h1></header>;
-  }
+  - Components in React are functions that return JSX (a mix of JavaScript and HTML).
+  - Each component should be in its own file for better organization.
 
-  export default Header;
+- **File**: `src/Title.jsx`
+```jsx
+function Title() {
+  return <h1>Welcome to My App</h1>;
+}
 
-  // App.jsx
-  // import Header from './Header';
-  // <Header />
-  ```
+export default Title;
+```
 
 ---
 
-### Task 3: **Pass a Subtitle via Props**  
-- **Task**: Update `Header` to accept a `subtitle` prop and display it under the title.  
+## Task 3: **Create a Second Component**
+
+- **Task**: Create another simple component for a subtitle.
 - **Tips**:
-  - Wrap both elements in a container like a `<div>` or `<header>`.
-- **Base Code**:
-  ```jsx
-  function Header({ subtitle }) {
-    return (
-      <header>
-        <h1>My Notes App</h1>
-        <p>{/* Add subtitle here */}</p>
-      </header>
-    );
-  }
+  - Every component in React is just a JavaScript function that returns JSX.
+  - Use `h2` or other tags for hierarchical content (e.g., a subtitle for your main title).
 
-  export default Header;
+- **File**: `src/Subtitle.jsx`
+```jsx
+function Subtitle() {
+  return <h2>Your React journey begins here.</h2>;
+}
 
-  // Usage in App.jsx
-  // <Header subtitle="Organize your thoughts" />
-  ```
+export default Subtitle;
+```
 
 ---
 
-### Task 4: **Show Static Note Count with State**  
-- **Task**: Create a `NoteCounter` component showing total notes using `useState`.  
+## Task 4: **Use JSX to Add Markup**
+
+- **Task**: Add more content to your `Subtitle` component using JSX.
 - **Tips**:
-  - Start with a fixed number like `5`.
-- **Base Code**:
-  ```jsx
-  import React, { useState } from 'react';
+  - JSX allows you to mix JavaScript expressions with HTML-like tags.
+  - You can include HTML tags, like `<p>`, inside JSX to structure your content.
 
-  function NoteCounter() {
-    const [notes] = useState(5);
+- **File**: `src/Subtitle.jsx` (overwrite previous one)
+```jsx
+function Subtitle() {
+  return (
+    <div>
+      <h2>Your React journey begins here.</h2>
+      <p>This app helps you learn how to use React step by step.</p>
+    </div>
+  );
+}
 
-    return <p>Total Notes: {/* Add value */}</p>;
-  }
-
-  export default NoteCounter;
-  ```
+export default Subtitle;
+```
 
 ---
 
-### Task 5: **Render a Button Conditionally**  
-- **Task**: Create a `SaveButton` component that only shows the button if `canSave` prop is true.  
+## Task 5: **Use Curly Braces to Add JavaScript in JSX**
+
+- **Task**: Add JavaScript to your component to display the current date.
 - **Tips**:
-  - Use `{canSave ? ... : null}` or `&&` logic.
-- **Base Code**:
-  ```jsx
-  function SaveButton({ canSave }) {
-    return (
-      <>
-        {canSave && <button>Save Note</button>}
-      </>
-    );
-  }
+  - In JSX, use `{}` to insert JavaScript expressions into the HTML-like markup.
+  - For example, `new Date()` is a JavaScript expression, and you can use it inside `{}` to render dynamic content.
 
-  export default SaveButton;
+- **File**: `src/Today.jsx`
+```jsx
+const today = new Date().toLocaleDateString();
 
-  // Usage example
-  // <SaveButton canSave={true} />
-  ```
+function Today() {
+  return <p>Today is: {today}</p>;
+}
+
+export default Today;
+```
 
 ---
 
-### Task 6: **Build a NoteCard with Reused Components**  
-- **Task**: Create a `NoteCard` component that displays a note’s `title` and `content` using props.  
+## Task 6: **Create a Component That Uses Props**
+
+- **Task**: Create a component that accepts props and renders dynamic content.
 - **Tips**:
-  - Structure content using semantic HTML and a `div.card` wrapper.
-- **Base Code**:
-  ```jsx
-  function NoteCard({ title, content }) {
-    return (
-      <div className="card">
-        <h3>{/* Title */}</h3>
-        <p>{/* Content */}</p>
-      </div>
-    );
-  }
+  - Props are used to pass data from one component to another.
+  - Props can be any data type, and the component will use them to display content.
 
-  export default NoteCard;
+- **File**: `src/Greeting.jsx`
+```jsx
+function Greeting(props) {
+  return <h3>Hello, {props.name}!</h3>;
+}
 
-  // Usage
-  // <NoteCard title="Shopping List" content="Buy eggs, milk..." />
-  ```
+export default Greeting;
+```
 
 ---
 
-### Task 7: **User Info with Static State**  
-- **Task**: Create a `UserInfo` component that displays a user's name from state.  
+## Task 7: **Render Content Conditionally**
+
+- **Task**: Conditionally render content based on the `isOnline` prop.
 - **Tips**:
-  - Initialize state with your name or a sample.
-- **Base Code**:
-  ```jsx
-  import React, { useState } from 'react';
+  - You can use conditional operators like the ternary operator (`? :`) or `if` statements in JSX.
+  - This is useful for showing different content based on the props passed.
 
-  function UserInfo() {
-    const [user] = useState("Jane");
+- **File**: `src/Status.jsx`
+```jsx
+function Status(props) {
+  return <p>Status: {props.isOnline ? 'Online' : 'Offline'}</p>;
+}
 
-    return <p>Welcome, {/* Username here */}</p>;
-  }
-
-  export default UserInfo;
-  ```
+export default Status;
+```
 
 ---
 
-### Task 8: **Reusable Button Component**  
-- **Task**: Build a `PrimaryButton` component that accepts `text` and `onClick` props.  
+## Task 8: **Render a List with `.map()`**
+
+- **Task**: Render a list of hobbies dynamically using `.map()`.
 - **Tips**:
-  - Use a button element with default styling.
-- **Base Code**:
-  ```jsx
-  function PrimaryButton({ text, onClick }) {
-    return <button onClick={onClick}>{/* Show button text */}</button>;
-  }
+  - Use the `.map()` method to loop over an array and render components for each item.
+  - Make sure to give each list item a unique `key` prop to avoid rendering issues.
 
-  export default PrimaryButton;
+- **File**: `src/Hobbies.jsx`
+```jsx
+function Hobbies(props) {
+  return (
+    <ul>
+      {props.list.map((hobby, index) => (
+        <li key={index}>{hobby}</li>
+      ))}
+    </ul>
+  );
+}
 
-  // Usage in App.jsx
-  // <PrimaryButton text="Add Note" onClick={() => alert('Clicked!')} />
-  ```
+export default Hobbies;
+```
 
 ---
 
-### Task 9: **Display a Time-Based Greeting**  
-- **Task**: Create a `TimeGreeting` component that shows a message based on the current hour.  
+## Task 9: **Keep Components Pure**
+
+- **Task**: Create a pure component that only depends on its props and does not modify them.
 - **Tips**:
-  - Use `new Date().getHours()` and `if`/`else` logic.
-- **Base Code**:
-  ```jsx
-  function TimeGreeting() {
-    const hour = new Date().getHours();
-    let message = "";
+  - Pure components are components that always render the same output for the same input (props).
+  - This makes them easier to debug and reuse.
 
-    // Set message based on hour range
+- **File**: `src/UserInfo.jsx`
+```jsx
+function UserInfo(props) {
+  return <p>Logged in as: {props.user}</p>;
+}
 
-    return <h2>{/* Show message */}</h2>;
-  }
-
-  export default TimeGreeting;
-  ```
+export default UserInfo;
+```
 
 ---
 
-### Task 10: **App Component with All Parts**  
-- **Task**: Assemble all components (`Header`, `NoteCard`, `UserInfo`, `TimeGreeting`, `PrimaryButton`) into `App.jsx`.  
-- **Tips**:
-  - Use `<div>` containers and spacing.
-  - Pass appropriate props for demo purposes.
-- **Base Code**:
-  ```jsx
-  function App() {
-    return (
-      <div>
-        {/* Add TimeGreeting, Header, UserInfo, NoteCard, PrimaryButton here */}
-      </div>
-    );
-  }
+## Task 10: **Create a Nested Component Tree**
 
-  export default App;
-  ```
+- **Task**: Combine the `Greeting`, `Status`, `Hobbies`, and `UserInfo` components into a `Profile` component.
+- **Tips**:
+  - You can pass props down to child components, creating a nested structure.
+  - Make sure each nested component has the necessary props for the content to render properly.
+
+- **File**: `src/Profile.jsx`
+```jsx
+import Greeting from './Greeting';
+import Status from './Status';
+import Hobbies from './Hobbies';
+import UserInfo from './UserInfo';
+
+function Profile(props) {
+  return (
+    <div>
+      <Greeting name={props.user} />
+      <Status isOnline={props.isOnline} />
+      <Hobbies list={props.hobbies} />
+      <UserInfo user={props.user} />
+    </div>
+  );
+}
+
+export default Profile;
+```
+
+---
+
+## ✅ Task 11: **Connect All Components in App.jsx**
+
+- **Task**: Now, combine all components into the `App` component.
+- **Tips**:
+  - Import each of the components created in previous tasks into `App.jsx`.
+  - Pass appropriate props to each component, and display them in the `App` component's JSX.
+
+- **File**: `src/App.jsx`
+```jsx
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Today from './Today';
+import Profile from './Profile';
+
+function App() {
+  const users = [
+    { name: 'Alice', isOnline: true, hobbies: ['Coding', 'Gaming'] },
+    { name: 'Bob', isOnline: false, hobbies: ['Reading', 'Hiking'] }
+  ];
+
+  return (
+    <div>
+      <Title />
+      <Subtitle />
+      <Today />
+      {users.map((user, index) => (
+        <Profile
+          key={index}
+          user={user.name}
+          isOnline={user.isOnline}
+          hobbies={user.hobbies}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+```
