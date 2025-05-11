@@ -1,9 +1,8 @@
 ## ✅ Task 1: **Create a New Vite + React Project for Rendering**
 
-- **Task**: Set up a new Vite + React project specifically for learning state and interactivity.
-- **Tips**:
-  - Open your terminal and create a new project using `npm create vite@latest`.
-  - Follow the previous steps for setting up the Vite project to ensure you have a clean slate for this section.
+- **Task**: Set up a new Vite + React project.
+- **Student to do**:
+  - Use the following commands to initialize and run the app:
 
 ```bash
 npm create vite@latest my-react-rendering --template react
@@ -14,14 +13,11 @@ npm run dev
 
 ---
 
-## Task 2: **Handle User-initiated Events**
-
-- **Task**: Create a button that increments a counter when clicked.
-- **Tips**:
-  - User-initiated events like clicks are handled by attaching event handlers such as `onClick`.
-  - You need to use **state** to keep track of the counter.
+## Task 2: **Handle User-initiated Events (Click to Increment Counter)**
 
 - **File**: `src/CounterButton.jsx`
+- **What you need to do**: Complete the event handler that updates the state on click.
+
 ```jsx
 import { useState } from 'react';
 
@@ -29,7 +25,7 @@ function CounterButton() {
   const [count, setCount] = useState(0);
 
   const handleClick = () => {
-    setCount(count + 1);
+    // 👉 Student: Update the count here using setCount
   };
 
   return (
@@ -45,14 +41,11 @@ export default CounterButton;
 
 ---
 
-## Task 3: **Make Components Remember Information with State**
-
-- **Task**: Add a text input and a button to save the entered text in the component state.
-- **Tips**:
-  - **State** allows you to store information that can change over time, like the text entered in an input field.
-  - The component will re-render automatically whenever the state changes.
+## Task 3: **Make Components Remember Text Input**
 
 - **File**: `src/NameInput.jsx`
+- **What you need to do**: Complete the `onChange` and `handleSave` logic.
+
 ```jsx
 import { useState } from 'react';
 
@@ -61,7 +54,7 @@ function NameInput() {
   const [savedName, setSavedName] = useState('');
 
   const handleSave = () => {
-    setSavedName(name);
+    // 👉 Student: Save the current name into savedName
   };
 
   return (
@@ -69,7 +62,11 @@ function NameInput() {
       <input 
         type="text" 
         value={name} 
-        onChange={(e) => setName(e.target.value)} 
+        onChange={
+          (e) => {
+            // 👉 Student: Update the name state here
+          }
+        } 
       />
       <button onClick={handleSave}>Save Name</button>
       <p>Saved Name: {savedName}</p>
@@ -82,16 +79,11 @@ export default NameInput;
 
 ---
 
-## Task 4: **React Updates UI in Two Phases**
-
-- **Task**: Create a component that shows when a button is clicked, then updates the UI accordingly.
-- **Tips**:
-  - React updates the DOM in two phases: 
-    1. It **recalculates** the UI (by comparing virtual DOM to actual DOM).
-    2. It then **commits** those changes to the DOM.
-  - This can result in the UI not being updated immediately after a state change, but React ensures the UI is updated efficiently.
+## Task 4: **React UI Update Phases**
 
 - **File**: `src/PhaseUpdate.jsx`
+- **What you need to do**: Add conditional rendering based on a state flag.
+
 ```jsx
 import { useState } from 'react';
 
@@ -99,13 +91,13 @@ function PhaseUpdate() {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
-    setIsClicked(true);
+    // 👉 Student: set isClicked to true
   };
 
   return (
     <div>
       <button onClick={handleClick}>Click Me</button>
-      {isClicked ? <p>The button was clicked!</p> : <p>Click the button</p>}
+      {/* 👉 Student: Show different text based on isClicked */}
     </div>
   );
 }
@@ -115,14 +107,11 @@ export default PhaseUpdate;
 
 ---
 
-## Task 5: **Why State Doesn’t Update Immediately**
-
-- **Task**: Demonstrate the asynchronous nature of state updates by creating a button that logs the count before and after a click.
-- **Tips**:
-  - React batches state updates to optimize performance, which is why state might not immediately reflect its new value after a change.
-  - Use `useEffect` to monitor state updates after the render.
+## Task 5: **Asynchronous State Behavior**
 
 - **File**: `src/AsyncStateUpdate.jsx`
+- **What you need to do**: Complete the log behavior before and after state changes.
+
 ```jsx
 import { useState, useEffect } from 'react';
 
@@ -132,11 +121,11 @@ function AsyncStateUpdate() {
   const handleClick = () => {
     console.log('Before Update:', count);
     setCount(count + 1);
-    console.log('After Update (same render):', count);
+    console.log('After Update:', count); // this won’t reflect the new value yet
   };
 
   useEffect(() => {
-    console.log('Updated count:', count);
+    // 👉 Student: Log updated count here
   }, [count]);
 
   return (
@@ -152,14 +141,11 @@ export default AsyncStateUpdate;
 
 ---
 
-## Task 6: **Queue Multiple State Updates**
-
-- **Task**: Create a component that increments both a counter and a second value when a button is clicked.
-- **Tips**:
-  - Multiple state updates can be queued, but React will process them together in the next render cycle.
-  - The updates do not occur immediately after calling `setState`—they’re scheduled.
+## Task 6: **Queueing Multiple State Updates**
 
 - **File**: `src/DoubleCounter.jsx`
+- **What you need to do**: Complete both counter updates inside the event.
+
 ```jsx
 import { useState } from 'react';
 
@@ -168,8 +154,7 @@ function DoubleCounter() {
   const [count2, setCount2] = useState(0);
 
   const handleClick = () => {
-    setCount1(count1 + 1);
-    setCount2(count2 + 1);
+    // 👉 Student: Increment both count1 and count2
   };
 
   return (
@@ -188,11 +173,9 @@ export default DoubleCounter;
 
 ## Task 7: **Update an Object in State**
 
-- **Task**: Create a component that stores an object (e.g., a user’s information) in state and updates one property of the object when a button is clicked.
-- **Tips**:
-  - To update an object in state, you need to use the **spread operator** to ensure that you don’t overwrite the entire object.
-
 - **File**: `src/UserInfo.jsx`
+- **What you need to do**: Use the spread operator to update one field of an object.
+
 ```jsx
 import { useState } from 'react';
 
@@ -200,7 +183,7 @@ function UserInfo() {
   const [user, setUser] = useState({ name: 'Alice', age: 30 });
 
   const updateName = () => {
-    setUser(prevUser => ({ ...prevUser, name: 'Bob' }));
+    // 👉 Student: Update the name only (use spread operator)
   };
 
   return (
@@ -219,11 +202,9 @@ export default UserInfo;
 
 ## Task 8: **Update an Array in State**
 
-- **Task**: Create a component that stores an array (e.g., a list of tasks) in state and adds a new item to the array when a button is clicked.
-- **Tips**:
-  - To update an array in state, use the spread operator to create a new array with the added element.
-
 - **File**: `src/TaskList.jsx`
+- **What you need to do**: Add new item to array using spread operator.
+
 ```jsx
 import { useState } from 'react';
 
@@ -231,7 +212,7 @@ function TaskList() {
   const [tasks, setTasks] = useState(['Task 1', 'Task 2']);
 
   const addTask = () => {
-    setTasks([...tasks, `Task ${tasks.length + 1}`]);
+    // 👉 Student: Add a new task using spread operator
   };
 
   return (
@@ -251,14 +232,11 @@ export default TaskList;
 
 ---
 
-## Task 9: **Use `useEffect` to Handle Side Effects After State Changes**
-
-- **Task**: Create a component that tracks when a button is clicked and logs the count to the console after the state is updated.
-- **Tips**:
-  - `useEffect` runs after the render cycle, making it perfect for handling side effects after state changes.
-  - It’s also useful when working with asynchronous operations.
+## Task 9: **Use `useEffect` After State Change**
 
 - **File**: `src/EffectAfterClick.jsx`
+- **What you need to do**: Log side effects with `useEffect`.
+
 ```jsx
 import { useState, useEffect } from 'react';
 
@@ -270,7 +248,7 @@ function EffectAfterClick() {
   };
 
   useEffect(() => {
-    console.log(`Button clicked ${count} times`);
+    // 👉 Student: Log message when count updates
   }, [count]);
 
   return (
@@ -286,14 +264,11 @@ export default EffectAfterClick;
 
 ---
 
-## Task 10: **Combine Multiple Interactive Components**
-
-- **Task**: Create an interactive profile that allows users to change their name and age using separate input fields.
-- **Tips**:
-  - Use separate state variables for different pieces of information, like the name and age.
-  - Use `onChange` for capturing input from text fields.
+## Task 10: **Interactive Profile with Multiple Inputs**
 
 - **File**: `src/ProfileUpdate.jsx`
+- **What you need to do**: Wire up the inputs to state.
+
 ```jsx
 import { useState } from 'react';
 
@@ -306,14 +281,18 @@ function ProfileUpdate() {
       <input 
         type="text" 
         value={name} 
-        onChange={(e) => setName(e.target.value)} 
         placeholder="Enter name"
+        onChange={(e) => {
+          // 👉 Student: update name state
+        }}
       />
       <input 
         type="number" 
         value={age} 
-        onChange={(e) => setAge(Number(e.target.value))} 
         placeholder="Enter age"
+        onChange={(e) => {
+          // 👉 Student: update age state
+        }}
       />
       <p>Name: {name}</p>
       <p>Age: {age}</p>
@@ -322,4 +301,29 @@ function ProfileUpdate() {
 }
 
 export default ProfileUpdate;
+```
+
+---
+
+## ✅ Task 11: **Render All Components Together**
+
+- **File**: `src/App.jsx`
+- **What you need to do**: Import and render all previous components together in this file.
+
+```jsx
+// 👉 Student: Import your components here
+// Example:
+// import CounterButton from './CounterButton';
+
+function App() {
+  return (
+    <div>
+      <h1>React State & Interactivity Practice</h1>
+      {/* 👉 Student: Add your components here one by one */}
+      {/* <CounterButton /> */}
+    </div>
+  );
+}
+
+export default App;
 ```
