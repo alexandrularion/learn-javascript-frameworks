@@ -8,8 +8,8 @@
   - **Ensure that your project runs**: Navigate to `http://localhost:5173` to confirm that everything works.
 
 ```bash
-npm create vite@latest my-react-app --template react
-cd my-react-app
+npm create vite@latest react-components --template react
+cd react-components
 npm install
 npm run dev
 ```
