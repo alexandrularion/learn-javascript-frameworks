@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+}
+
+.container--lg {
+  height: 70px;
+}
+.container--md {
+  height: 60px;
+}
+.container--sm {
+  height: 50px;
+}
+
+.container--primary {
+  background: red;
+}
+.container--secondary {
+  background: blue;
+}
+.container--tertiary {
+  background: pink;
+}
