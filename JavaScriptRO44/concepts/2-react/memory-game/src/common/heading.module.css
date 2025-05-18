@@ -1,0 +1,22 @@
+.container {
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: var(--font-line-height);
+  color: var(--color-secondary-500);
+}
+
+.container--h1 {
+  font-size: var(--heading-size-1);
+}
+.container--h2 {
+  font-size: var(--heading-size-2);
+}
+.container--h3 {
+  font-size: var(--heading-size-3);
+}
+.container--h4 {
+  font-size: var(--heading-size-4);
+}
+.container--h5 {
+  font-size: var(--heading-size-5);
+}
