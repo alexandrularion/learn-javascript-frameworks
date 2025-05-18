@@ -1,23 +1,36 @@
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 35px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  padding: 0 var(--space-md);
+  transition: 0.2s all ease-in-out;
 }
 
 .container--lg {
   height: 70px;
+  font-size: var(--button-size-1);
 }
 .container--md {
-  height: 60px;
-}
-.container--sm {
-  height: 50px;
+  height: 52px;
+  font-size: var(--button-size-3);
 }
 
 .container--primary {
-  background: red;
+  background: var(--color-primary);
+  color: var(--color-secondary-50);
 }
 .container--secondary {
-  background: blue;
+  background: var(--color-secondary-100);
+  color: var(--color-secondary-400);
 }
-.container--tertiary {
-  background: pink;
+
+.container--secondary:hover,
+.container--primary:hover {
+  opacity: 0.8;
 }

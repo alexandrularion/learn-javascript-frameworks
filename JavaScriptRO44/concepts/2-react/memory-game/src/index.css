@@ -3,3 +3,36 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+:root {
+  /* COLORS */
+  --color-primary: #03a8a0;
+  --color-secondary-500: #143b37;
+  --color-secondary-400: #36695f;
+  --color-secondary-300: #97bdb8;
+  --color-secondary-200: #bcd9d1;
+  --color-secondary-100: #d8e1de;
+  --color-secondary-50: #f6f6f6;
+  --color-secondary-10: #ffffff;
+
+  /* SPACES */
+  --space-2xs: 8px;
+  --space-xs: 16px;
+  --space-sm: 24px;
+  --space-md: 32px;
+  --space-lg: 40px;
+  --space-xl: 48px;
+  --space-2xl: 80px;
+
+  /* FONTS */
+  --font-family: "Chakra Petch", sans-serif;
+  --font-line-height: 125%;
+  --heading-size-1: 48px;
+  --heading-size-2: 40px;
+  --heading-size-3: 32px;
+  --heading-size-4: 20px;
+  --heading-size-5: 18px;
+  --button-size-1: 32px;
+  --button-size-2: 26px;
+  --button-size-3: 20px;
+}

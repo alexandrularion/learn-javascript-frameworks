@@ -1,18 +1,22 @@
 import styles from "./button.module.css";
 
-const Button = (props) => {
+// NOTE: Use rest operator to extract the rest of the properties within props object
+const Button = ({
+  children,
+  size = "md",
+  variant = "primary",
+  ...restOfProps
+}) => {
   // NOTE: Before return we can write any logic (states, refs, functions, variables)
   const generateClassName = (size, variant) => {
     const baseClassName = styles["container"];
     const sizeClassNames = {
       lg: styles["container--lg"],
       md: styles["container--md"],
-      sm: styles["container--sm"],
     };
     const variantClassNames = {
       primary: styles["container--primary"],
       secondary: styles["container--secondary"],
-      tertiary: styles["container--tertiary"],
     };
     // NOTE: With backticks `` we can do string interpolation (concatenation)
     return `${baseClassName} ${sizeClassNames[size]} ${variantClassNames[variant]}`;
@@ -20,8 +24,9 @@ const Button = (props) => {
 
   // NOTE: Children helps us to send any child within our component
   return (
-    <button className={generateClassName(props.size, props.variant)} {...props}>
-      {props.children}
+    // NOTE: Other properties than children, size or variant are passed as attributes to our btn
+    <button className={generateClassName(size, variant)} {...restOfProps}>
+      {children}
     </button>
   );
 };
