@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.container__card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-secondary-100);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 10px;
+  width: 255px;
+}
