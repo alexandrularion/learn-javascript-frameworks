@@ -12,7 +12,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   place-items: center;
-  gap: var(--space-2xl);
+  gap: var(--space-lg);
   width: 100%;
   max-width: 1110px;
 }

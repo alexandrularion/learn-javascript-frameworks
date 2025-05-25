@@ -1,9 +1,27 @@
+import useConfig from "../hooks/use-config";
 import styles from "./game-board.module.css";
 
 const GameBoard = (props) => {
+  const config = useConfig();
+
   const containerClassName = `${styles["container"]} ${
-    styles[props.grid === "4x4" ? "container--4x4" : "container--6x6"]
+    styles[config.grid === "4x4" ? "container--4x4" : "container--6x6"]
   }`;
+
+  const handleClick = (item) => {
+    props.setItems((items) =>
+      items.map((currentItem) => {
+        if (currentItem.id === item.id) {
+          props.setPair([...props.pair, currentItem]);
+          return {
+            ...currentItem,
+            status: "just-revealed",
+          };
+        }
+        return currentItem;
+      })
+    );
+  };
 
   return (
     <div className={containerClassName}>
@@ -19,7 +37,7 @@ const GameBoard = (props) => {
             : styles["container__item--just-revealed"];
         // NOTE: We choose the right style based on grid size
         const classNameByGrid =
-          props.grid === "4x4"
+          config.grid === "4x4"
             ? styles["container__item--4x4"]
             : styles["container__item--6x6"];
 
@@ -28,6 +46,7 @@ const GameBoard = (props) => {
             key={index}
             // NOTE: We concatenate the string using `` backticks symbols (string interpolation)
             className={`${baseClassName} ${classNameByStatus} ${classNameByGrid}`}
+            onClick={() => handleClick(item)}
           >
             {item.status === "hidden" ? null : item.value}
           </div>
